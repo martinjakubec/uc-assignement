@@ -28,13 +28,14 @@ In frontend folder:
 
 This API exposes multiple endpoints, 3 of them for the use in frontend, 2 for working with OpenAPI spec
 
-### /latest/:currency
-- fetches the latest currency data for the currency queried, e.g. USD. 
-
 ### /history
 - fetches historical currency rates for base and target currencies, between start and end dates
 
 *Caveat: since I do not have access to the premium API key needed to query historical data from currency API, I am generating data for all the days that do not have it. Data which is already present in the database from /latest endpoint should still be real world data*
+
+### /latest/:currency
+- fetches the latest currency data for the currency queried, e.g. USD. 
+- because of the limitation of free API key, this endpoint doesn't allow the possibility of fetching historical data for a single currency
 
 ### /supported-currencies
 - provides data about supported currencies, used for frontend to more easily keep up in sync with backend
