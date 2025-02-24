@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:5.7
+    env_file: backend/.env.docker
+    ports:
+      - 3306:3306
+
+  backend:
+    image: backend
+    build:
+      dockerfile: backend/Dockerfile
+    ports:
+      - 8080:8080
+
+networks:
+  backend:
+    driver: bridge
