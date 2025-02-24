@@ -6,7 +6,6 @@ services:
       - 3306:3306
 
   backend:
-    image: backend
     build:
       dockerfile: backend/Dockerfile
     ports:

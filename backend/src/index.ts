@@ -10,8 +10,6 @@ import dotenv from 'dotenv';
 
 dotenv.config({path: '../.env'});
 
-console.log(process.env.MYSQL_URL)
-
 const app = express();
 const port = process.env.APP_PORT;
 
@@ -27,7 +25,7 @@ const options = {
     },
     servers: [{url: 'http://localhost:8080'}],
   },
-  apis: [path.join(__dirname, 'routes', '*.ts')],
+  apis: [path.join(__dirname, 'routes', '*.[t|j]s')],
 };
 
 const specs = swaggerJsdoc(options);

@@ -11,7 +11,6 @@ export default function DateSelect({onChange, labelText}: DateSelectProps) {
     <>
       <DatePicker
         onChange={(value) => {
-          console.log(value?.year(), value?.month(), value?.date());
           onChange(value);
         }}
         label={labelText}

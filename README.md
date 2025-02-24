@@ -11,13 +11,20 @@ In backend folder:
 - copy .env.example file to a .env file and change the values as needed (mainly API_KEY)
 - copy .env.docker.example file to a .env file and change the values as needed
 - run `npm install`
-- run `docker compose up -d`, which starts mysql container and backend app container
-- once backend service initializes, the app should be available at localhost, with port specified in .env.docker
 
+Using docker for running the backend app: 
+- run `docker compose up -d`, which starts mysql container and backend app container
+- once backend service initializes, the app should be available at localhost, with port specified in .env.docker (app sleeps for 30 secs so that mysql container can initialize properly and be accessible)
+
+Running the backend app in dev mode:
+- run `docker compose up -d db`, which only starts mysql container
+- run `npm run watch` to run the app locally
 
 ### Frontend
 In backend folder: 
-- run `npm run swagger:generate`, which will create frontend API client
+- make sure that the backend app is running (either in container or locally)
+- run `npm run swagger:generate`, which will create frontend API client - if you changed ports in .env files, you will also need to change them in backand `package.json` script, since swagger fetches OpenAPI specs from the app itself
+
 In frontend folder:
 - copy .env.example file to a .env file and change the values as needed
 - run `npm install` 
