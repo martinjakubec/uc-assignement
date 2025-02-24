@@ -134,21 +134,23 @@ export default function HistoryCurrency() {
         <TableContainer sx={{maxWidth: '100%', overflow: 'auto'}}>
           <Table>
             <TableHead>
-              {currencyData.rates?.map((rate) => (
-                <TableCell
-                  key={rate.date}
-                  sx={{
-                    whiteSpace: 'nowrap',
-                    bgcolor: getBgColor(
-                      rate.date,
-                      dateWithMinRate,
-                      dateWithMaxRate
-                    ),
-                  }}
-                >
-                  {rate.date}
-                </TableCell>
-              ))}
+              <TableRow>
+                {currencyData.rates?.map((rate) => (
+                  <TableCell
+                    key={rate.date}
+                    sx={{
+                      whiteSpace: 'nowrap',
+                      bgcolor: getBgColor(
+                        rate.date,
+                        dateWithMinRate,
+                        dateWithMaxRate
+                      ),
+                    }}
+                  >
+                    {rate.date}
+                  </TableCell>
+                ))}
+              </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
